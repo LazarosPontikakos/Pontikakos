@@ -1,0 +1,77 @@
+[
+    {
+       "id": 0,
+        "question": "Are you already registered with OAED?",
+        "options":["Yes","No"]
+
+
+    },
+    {
+       "id": 1,
+        "question": "Do you have an account in the OAED system (electronic identification)?",
+        "options":["Yes","No"]
+
+
+
+    },
+
+    {
+       "id": 2,
+        "question": "Do you have the necessary documents with you? (e.g. identity card, proof of address, VAT number)",
+        "options": ["Yes, I have it all", "No, some are missing"]
+
+
+    },
+    
+
+
+
+    {
+        "id": 3,
+        "question": "Do you meet the following criteria: You are not working, you are not a student and you have no income?",
+        "options":["Yes", "No"]
+
+
+
+                     
+    },
+
+
+    {
+       "id": 4,
+        "question": "Will you fill out the form yourself or do you need help?",
+        "options": ["On my own", "I need help"]
+
+
+
+    },
+    
+
+    {
+      "id": 5,
+        "question": "In which prefecture do you live?",
+        "options": ["Athens", "Thessaloniki", "Other Prefecture"]
+
+
+
+    }
+    
+    ,
+    {
+       "id": 6,
+        "question": "Do you want to receive your unemployment card online or in person?",
+        "options": ["Electronic", "Physical"]
+
+
+    }
+    ,
+
+    {
+       "id": 7,
+        "question": "Do you want to be reminded about the renewal of your unemployment card?",
+        "options": ["Yes", "No"]
+
+
+
+    }
+]
