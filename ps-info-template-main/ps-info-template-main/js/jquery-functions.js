@@ -298,12 +298,16 @@ $("document").ready(function () {
     $(".question-container").html(questionElement);
   }
 
-  function skipToEnd(message) {
+  function skipToEnd(message, includeGeneralMessage = true) {
     const errorEnd = document.createElement("h5");
-    const error =
-      currentLanguage === "greek"
-        ? "Λυπούμαστε αλλά δεν δικαιούστε το δελτίο μετακίνησης ΑΜΕΑ!"
-        : "We are sorry but you are not entitled to the transportation card for the disabled!";
+    let error = " ";
+    if (includeGeneralMessage) {
+      error =
+          currentLanguage === "greek"
+             ? "Λυπούμαστε αλλά δεν δικαιούστε το δελτίο ανεργίας!"
+             : "We are sorry but you are not entitled to the transportation card for the disabled!";
+    }
+      
     errorEnd.className = "govgr-error-summary";
     errorEnd.textContent = error + " " + message;
     $(".question-container").html(errorEnd);
@@ -344,8 +348,7 @@ $("document").ready(function () {
     ) {
       getEvidencesById(10);
       currentLanguage === "greek"
-        ? setResult("Δικαιούται και ο συνοδός το ίδιο δελτίο μετακίνησης.")
-        : setResult("The companion is also entitled with the same transportation card.");
+       
     }
 
     if (allAnswers[6] === "2") {
@@ -359,7 +362,7 @@ $("document").ready(function () {
       getEvidencesById(12);
       currentLanguage === "greek"
       ? setResult(
-          "Δικαιούστε έκπτωση 50% για τις εκτός ορίων της περιφέρειας σας μετακινήσεις με υπεραστικά ΚΤΕΛ."
+          "Δικαιούσαι την ψηφιακή κάρτα (δελτίο ανεργίας) για 3 μήνες από την έκδοσή της."
         )
       : setResult(
           "You are entitled to a 50% discount for transportation outside the boundaries of your region with long-distance bus services (named KTEL)."
@@ -377,7 +380,7 @@ $("document").ready(function () {
       } else if (allAnswers[8] === "2") {
         currentLanguage === "greek"
           ? setResult(
-              "Δικαιούσαι έκπτωση 50% για τις εκτός ορίων της περιφέρειας σου μετακινήσεις με υπεραστικά ΚΤΕΛ."
+              "Δικαιούσαι την ψηφιακή κάρτα (δελτίο ανεργίας) για 3 μήνες από την έκδοσή της."
             )
           : setResult(
               "You are entitled to a 50% discount for transportation outside the boundaries of your region with long-distance bus services (named KTEL)."
@@ -409,7 +412,7 @@ $("document").ready(function () {
     evidenceListElement.setAttribute("id", "evidences");
     currentLanguage === "greek"
       ? $(".question-container").append(
-          "<br /><br /><h5 class='answer'>Τα δικαιολογητικά που πρέπει να προσκομίσετε για να λάβετε το δελτίο μετακίνησης είναι τα εξής:</h5><br />"
+          "<br /><br /><h5 class='answer'>Τα δικαιολογητικά που πρέπει να προσκομίσετε για να λάβετε το δελτίο ανεργίας είναι τα εξής:</h5><br />"
         )
       : $(".question-container").append(
           "<br /><br /><h5 class='answer'>The documents you need to provide in order to receive your transportation card are the following:</h5><br />"
@@ -427,16 +430,31 @@ $("document").ready(function () {
           $('input[name="question-option"]:checked')
         ) + 1;
       console.log(selectedRadioButtonIndex);
-      if (currentQuestion === 0 && selectedRadioButtonIndex === 3) {
+      if (currentQuestion === 0 && selectedRadioButtonIndex === 2) {
         currentQuestion = -1;
-        currentLanguage === "greek" ? skipToEnd("Μπορείτε να το εκδώσετε ξανά μόνο μια φορά μετά από απώλεια.") : skipToEnd("You can reissue it only one time after loss.");
+        currentLanguage === "greek" ? skipToEnd("Πρέπει πρώτα να εγγραφείτε στον ΟΑΕΔ για να συνεχίσετε τη διαδικασία. Μεταβείτε στη σελίδα εγγραφής του ΟΑΕΔ: oaed.gr/registration.") : skipToEnd("You must first register with OAED to continue the process. Go to the OAED registration page: oaed.gr/registration.");
       } else if (currentQuestion === 1 && selectedRadioButtonIndex === 2) {
         currentQuestion = -1;
-        currentLanguage === "greek" ? skipToEnd("Πρέπει να είστε μόνιμος και νόμιμος κάτοικος της Ελλάδας.") : skipToEnd("You must be permanent and legal resident of Greece.");
-      } else if (currentQuestion === 3 && selectedRadioButtonIndex === 2) {
+        currentLanguage === "greek" ? skipToEnd("Πρέπει να δημιουργήσετε λογαριασμό στο ηλεκτρονικό σύστημα του ΟΑΕΔ. Μεταβείτε στη σελίδα εγγραφής: oaed.gr/create-account.") : skipToEnd("You must create an account in the OAED electronic system. Proceed to registration page: oaed.gr/create-account.");
+      } else if (currentQuestion === 2 && selectedRadioButtonIndex === 2) {
         currentQuestion = -1;
-        currentLanguage === "greek" ? skipToEnd("Πρέπει να έχετε ποσοστό αναπηρίας 67% και άνω ή να είστε δικαιούχος του επιδόματος ΟΠΕΚΑ.") : skipToEnd("You must have a disability rate of 67% or more or be a beneficiary of the OPEKA benefit.");
-      } else {
+        currentLanguage === "greek" ? skipToEnd("Πρέπει να έχετε μαζί σας όλα τα δικαιολογητικά(ταυτότητα, αποδεικτικό διεύθυνσης, ΑΦΜ). Μετά την συκγέντρωση των απαρίτητων εγγράφων μπορείτε να συνεχίσετε.") : skipToEnd("You must have with you all the supporting documents (ID, proof of address, VAT number). After gathering the necessary documents you can continue.");
+      } else if(currentQuestion === 3 && selectedRadioButtonIndex === 2){
+        currentQuestion = -1;
+        currentLanguage === "greek" ? skipToEnd("Δυστυχώς δεν πληροίτε όλα τα παραπάνω κριτήρια για να έχετε το δικαίωμα να λάβετε το δελτίο ανεργίας.Επικοινωνήστε με τον ΟΑΕΔ για περισσότερες πληροφορίες.") : skipToEnd("Unfortunately you do not meet all the above criteria to be eligible to receive the unemployment card.Contact OAED for more information.");
+      } else if(currentQuestion === 4 && selectedRadioButtonIndex === 2){
+        currentQuestion = -1;
+        currentLanguage === "greek" ? skipToEnd("Μπορείτε να επικοινωνήσετε με έναν υπάλληλο του ΟΑΕΔ για βοήθεια. Τηλέφωνο: 12345 ή μεταβείτε σε ένα τοπικό γραφείο του ΟΑΕΔ.", false) : skipToEnd("You can contact an OAED employee for help. Telephone: 12345 or go to a local OAED office.", false);
+      } else if(currentQuestion === 5 && selectedRadioButtonIndex === 3){
+        currentQuestion = -1;
+        currentLanguage === "greek" ? skipToEnd("Επισκεφθείτε την ιστοσελίδα του ΟΑΕΔ για να βρείτε το πλησιέστερο γραφείο: oaed.gr/branches.", false) : skipToEnd("Visit the OAED website to find the nearest office: oaed.gr/branches.", false);
+      } else if(currentQuestion === 6 && selectedRadioButtonIndex === 2){
+        currentQuestion = -1;
+        currentLanguage === "greek" ? skipToEnd("Καλέστε το τοπικό γραφείο του ΟΑΕΔ για ραντεβού. Δείτε τα στοιχεία επικοινωνίας εδώ: oaed.gr/branches.", false) : skipToEnd("Call your local OAED office for an appointment. See contact details here: oaed.gr/branches.", false);
+      } else if(currentQuestion === 7 && selectedRadioButtonIndex === 1){
+        currentQuestion = -1;
+        currentLanguage === "greek" ? skipToEnd("Ευχαριστούμε! Θα σας στείλουμε υπενθύμιση για την ανανέωση του δελτίου ανεργίας σας. Βεβαιωθείτε ότι τα στοιχεία επικοινωνίας σας είναι ενημερωμένα.", false) : skipToEnd("Thank you! We will send you a reminder to renew your unemployment card. Please ensure your contact information is up to date.", false);
+      }else {
         //save selectedRadioButtonIndex to the storage
         userAnswers[currentQuestion] = selectedRadioButtonIndex;
         sessionStorage.setItem(
