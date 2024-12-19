@@ -1,1 +1,36 @@
-
+{
+    "PublicService": {
+        "name": "Unemployment Card",
+        "evidence": [
+            {
+                "id": 1,
+                "evs": [
+                    {
+                        "id": "ev0001",
+                        "type": "Evidence",
+                        "name": "Police Identity Card or Passport",
+                        "description": "Identity card of the applicant or a photocopy of it."
+                    },
+                    {
+                        "id": "ev0002",
+                        "type": "Evidence",
+                        "name": "TaxisNet Credentials",
+                        "description": "Proves your residential address (e.g., utility bill, rental agreement)."
+                    },
+                    {
+                        "id": "ev0003",
+                        "type": "Evidence",
+                        "name": "DYPA Credentials",
+                        "description": "Required for financial and tax identification."
+                    },
+                    {
+                        "id": "ev0004",
+                        "type": "Evidence",
+                        "name": "Disability Certificate",
+                        "description": "Proves your registration in the social security system."
+                    }
+                ]
+            }
+        ]
+    }
+}
