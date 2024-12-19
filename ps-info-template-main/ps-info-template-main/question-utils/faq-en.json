@@ -1,1 +1,27 @@
-
+[
+    {
+        "id": 0,
+        "question": "How often do I need to renew the unemployment card/digital card?",
+        "answer": "The renewal option starts 20 days before the expiration date of the unemployment card (digital card) and lasts until the expiration date. After this period, the unemployment card is automatically deleted. In this case, citizens can proceed to issue a new unemployment card if the conditions for registration in the DYPA digital registry still apply."
+    },
+    {
+        "id": 1,
+        "question": "What rights/benefits do I gain from registering in DYPA's digital registry?",
+        "answer": "After registration, the job seeker/unemployed individual has the following rights: <br><li>In case of dismissal, the right to receive unemployment benefits: if it is determined that the dismissed unemployed person meets the requirements for benefits (e.g., has accumulated a certain number of insurance stamps), they can submit an application for regular unemployment benefits. <br><li>Referral to a job position if it is found that there is a vacancy matching their qualifications and the profession they are interested in. <br><li> Resume registration – exploration during an interview with the competent DYPA employee / personalized approach / development of an individual action plan: proposals for participation in actions/programs of counseling, employment, or training for the registered job seeker in the DYPA registry."
+    },
+    {
+        "id": 2,
+        "question": "I want to register online. What should I do?",
+        "answer": "To register in the registry of unemployed/job seekers online, you need to log in to DYPA's online services using your TAXISnet credentials or DYPA credentials (if you have previously received them). After logging in to DYPA's e-services, select “Issue Unemployment Card” and fill in the required fields for the unemployed registration (see Online Registration)."
+    },
+    {
+        "id": 3,
+        "question": "Where can I renew my unemployment card/digital card?",
+        "answer": "The unemployment card (digital card) can be renewed exclusively through the following methods: Electronically, using your TAXISnet credentials, via: the Unified Digital Portal of Public Administration (gov.gr), DYPA's electronic services (e-services), or through the Citizen Service Centers (KEP)."
+    },
+    {
+        "id": 4,
+        "question": "Under what circumstances is my unemployment card (digital card) deleted?",
+        "answer": "The unemployment card is deleted in the following cases: <br><li>In case of employment, either through DYPA's mediation or by the unemployed person's own actions. <br><li>In case job seekers (article 16 of Law 4921/2022) fail to fulfill the obligations arising from articles 20, 21, 22, and 23 of Law 4921/2022, as specified in Decision No. 5274/114/27.09.2022 of DYPA's Administrative Council (Government Gazette 5078/B’/28.09.2022). <br><li>In case of failure to renew the unemployment card within 20 days before its expiration date. <br><li>In case of unavailability of the unemployed person in the job market. <br><li>In case of military service. <br><li>In case of retirement due to personal entitlement. <br><li>In case of expiration of the residence or work permit for foreign nationals (for third-country citizens). <br><li>In case of studying, apprenticeship, or internship. <br><li>In case of primary insurance under OGA, NAT. <br><li>In case of training, if the conditions of article 34 of Law 4554/2018 are not met."
+    }
+]
