@@ -47,31 +47,15 @@
     },
     
 
+   
     {
-      "id": 5,
-        "question": "In which prefecture do you live?",
-        "options": ["Athens", "Thessaloniki", "Other Prefecture"]
-
-
-
-    }
-    
-    ,
-    {
-       "id": 6,
+       "id": 5,
         "question": "Do you want to receive your unemployment card online or in person?",
         "options": ["Electronic", "Physical"]
 
 
     }
-    ,
+    
 
-    {
-       "id": 7,
-        "question": "Do you want to be reminded about the renewal of your unemployment card?",
-        "options": ["Yes", "No"]
-
-
-
-    }
+   
 ]
