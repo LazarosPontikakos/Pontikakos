@@ -421,6 +421,7 @@ $("document").ready(function () {
     $("#faqContainer").load("faq.html");
     retrieveAnswers();
     hideFormBtns();
+    
   }
 
   $("#nextQuestion").click(function () {
@@ -445,16 +446,10 @@ $("document").ready(function () {
       } else if(currentQuestion === 4 && selectedRadioButtonIndex === 2){
         currentQuestion = -1;
         currentLanguage === "greek" ? skipToEnd("Μπορείτε να επικοινωνήσετε με έναν υπάλληλο του ΟΑΕΔ για βοήθεια. Τηλέφωνο: 12345 ή μεταβείτε σε ένα τοπικό γραφείο του ΟΑΕΔ.", false) : skipToEnd("You can contact an OAED employee for help. Telephone: 12345 or go to a local OAED office.", false);
-      } else if(currentQuestion === 5 && selectedRadioButtonIndex === 3){
-        currentQuestion = -1;
-        currentLanguage === "greek" ? skipToEnd("Επισκεφθείτε την ιστοσελίδα του ΟΑΕΔ για να βρείτε το πλησιέστερο γραφείο: oaed.gr/branches.", false) : skipToEnd("Visit the OAED website to find the nearest office: oaed.gr/branches.", false);
-      } else if(currentQuestion === 6 && selectedRadioButtonIndex === 2){
+      }  else if(currentQuestion === 5 && selectedRadioButtonIndex === 2){
         currentQuestion = -1;
         currentLanguage === "greek" ? skipToEnd("Καλέστε το τοπικό γραφείο του ΟΑΕΔ για ραντεβού. Δείτε τα στοιχεία επικοινωνίας εδώ: oaed.gr/branches.", false) : skipToEnd("Call your local OAED office for an appointment. See contact details here: oaed.gr/branches.", false);
-      } else if(currentQuestion === 7 && selectedRadioButtonIndex === 1){
-        currentQuestion = -1;
-        currentLanguage === "greek" ? skipToEnd("Ευχαριστούμε! Θα σας στείλουμε υπενθύμιση για την ανανέωση του δελτίου ανεργίας σας. Βεβαιωθείτε ότι τα στοιχεία επικοινωνίας σας είναι ενημερωμένα.", false) : skipToEnd("Thank you! We will send you a reminder to renew your unemployment card. Please ensure your contact information is up to date.", false);
-      }else {
+      } else {
         //save selectedRadioButtonIndex to the storage
         userAnswers[currentQuestion] = selectedRadioButtonIndex;
         sessionStorage.setItem(
@@ -463,15 +458,16 @@ $("document").ready(function () {
         ); // save answer to session storage
 
         //if the questions are finished then...
-        if (currentQuestion + 1 == totalQuestions) {
+        if (currentQuestion +1 == totalQuestions) {
           submitForm();
+          $("#submitBtn").prop('disabled', true).hide();
         }
         // otherwise...
         else {
           currentQuestion++;
           loadQuestion(currentQuestion, true);
 
-          if (currentQuestion + 1 == totalQuestions) {
+          if (currentQuestion +1  == totalQuestions) {
             currentLanguage === "greek"
               ? $(this).text("Υποβολή")
               : $(this).text("Submit");
